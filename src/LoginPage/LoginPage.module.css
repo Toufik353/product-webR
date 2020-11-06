@@ -1,0 +1,112 @@
+.LandingSection{
+    
+    /* position:fixed; */
+    /* top:80px; */
+    width:100%;
+    height:100vh;
+    margin-top:0;
+    background-color: rgb(78,101,122);
+}
+.FormSection{
+    margin:0px auto;
+    margin-top:50px; 
+    width:400px;
+    /* border:1px solid black; */
+    height:500px;
+    background-color: rgb(67,92,112);
+}
+.Label{
+    box-sizing: border-box;
+    color:white;
+    margin-left:30px;
+    margin-bottom:0px;
+    /* border:1px solid pink; */
+    font-size:14px;
+    font-weight: 500;
+}
+.LoginName{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    padding-top:10%;
+    padding-bottom:6%;
+
+}
+.InputBox{
+    color: white;
+    width:80%;
+    box-sizing: border-box;
+    margin:5px 15px;
+    margin-bottom:20px;
+    transform: translateX(5%);
+    padding: 19px 18px;
+    border-radius: 0;
+    height: 50px;
+    outline:none;
+    border:0;
+    background-color: rgb(84,101,122);
+}
+.InputBox::placeholder{
+    background-color: rgb(84,101,122);
+}
+.SubmitBox{
+    width:80%;
+    box-sizing: border-box;
+    margin:20px 15px;
+    transform: translateX(5%);
+    padding: 19px 18px;
+    border-radius: 0;
+    height: 50px;
+    outline:none;
+    border:0;
+    background-color: rgb(245,166,35);
+    color: white;
+    font-weight:600;
+    font-size: 12px;
+}
+.SubmitBox::placeholder{
+    font-weight:400;
+}
+.Errormessage{
+    margin-top:0;
+    margin-left:30px;
+    color:red;
+}
+.FormSection button{
+    width:80%;
+    box-sizing: border-box;
+    margin:20px 15px;
+    transform: translateX(5%);
+    padding: 19px 18px;
+    border-radius: 0;
+    height: 50px;
+    outline:none;
+    border:0;
+    background-color: rgb(245,166,35);
+    color: white;
+    font-weight:600;
+    font-size: 12px;
+}
+
+@media(max-width:400px){
+    body{
+      width:100%;
+      box-sizing: border-box;
+    }
+    .LoginSection{
+        width:100%;
+
+    }
+    .FormSection{
+        width:65%;
+        margin-left: 10px;
+        margin-right:0px;
+        box-sizing: border-box;
+       
+    }  
+    .LoginName{
+        font-size: 12px;
+    }
+   
+
+}
