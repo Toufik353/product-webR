@@ -35,17 +35,17 @@ export default class AccountPage extends Component {
 componentDidUpdate(prevProps,prevState) {
     console.log(prevState.role);
    
-//     if(prevState.role===this.state.role){
+    if(prevState.role===this.state.role){
         
-// } else{
-//     this.setState({
-//         username:this.state.detailinfo.name,
-//         password:this.state.detailinfo.password,
-//         email:this.state.detailinfo.email,
-//         repaswors:this.state.detailinfo.password,
-//         profile:this.state.detailinfo.profilePic
-//     }) 
-// }
+} else{
+    this.setState({
+        username:this.state.detailinfo.name,
+        password:this.state.detailinfo.password,
+        email:this.state.detailinfo.email,
+        repaswors:this.state.detailinfo.password,
+        profile:this.state.detailinfo.profilePic
+    }) 
+}
 }
 
              
@@ -161,7 +161,7 @@ componentDidUpdate(prevProps,prevState) {
 
           const handleSeletion=(e)=>{
         var accountSel=e.target.value;
-            alert('clicked')
+            // alert('clicked')
             // let roleArr=Object.keys(data.accountsPage);
             // console.log(roleArr);
             // let filterRole=roleArr.filter(item=>{

@@ -1,0 +1,46 @@
+.productPage{
+    width:100%;
+    height:100vh;
+    /* background-color: aqua; */
+    background-color: #4E657A;
+    display:flex;
+}
+
+.leftSection{
+    width:60%;
+    background-color: #435C70;
+    height:80%;
+    margin-left: 40px;
+    margin-right:20px;
+    margin-top:40px;
+    box-sizing: border-box;
+}
+
+.rightSection{
+    margin-top:40px;
+
+    width:40%;
+    background-color: #435C70;
+    height:80%;
+    margin-left:20px;
+    margin-right:40px;
+    box-sizing: border-box;
+
+}
+
+.wrapper{
+    width: 80%;
+    height:80%;
+margin:auto;
+margin-top:40px;
+margin-bottom:40px;
+    box-sizing: border-box;
+    background-color: #50697F;
+}
+
+input[type="checkbox"]
+::-ms-check {
+    color: red;
+    background: black;
+    padding: 1em;
+}

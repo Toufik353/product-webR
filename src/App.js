@@ -6,6 +6,7 @@ import Topbar from './Topbar/Topbar';
 import LoginPage from "./LoginPage/LoginPage"
 import DashboardPage from "./DashboardPage/DashboardPage";
 import AccountPage from "./AccountPage/AccountPage"
+import productPage from "./productPage/productPage"
 import {Switch,BrowserRouter,Link,Route} from "react-router-dom";
 import axios from "axios";
 
@@ -43,6 +44,7 @@ class App extends React.Component {
      <Route exact path="/" component={LoginPage}/>
      <Route path="/dashboard/" component={DashboardPage}/>
      <Route path="/AccountPage/" component={AccountPage}/>
+     <Route path="/productPage/" component={productPage}/>
      </Switch>
      
       </div>
