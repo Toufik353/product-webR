@@ -7,7 +7,7 @@ state={
     currentRow:-1,
     productData:localStorage.getItem("appData")===null?[]:JSON.parse(localStorage.getItem("appData")).productsPage.products,
  clickedArr:[] ,
- isChecked:true,
+ isChecked:false,
  CurrentId:-1,
            
 
@@ -58,144 +58,42 @@ handleDelet=(rowId)=>{
           })
 }
 
+handleChecked=(e,rowId)=>{
+let updatedArray=this.state.clickedArr; //[][1][1,2,4]
+// updatedArray.map((item,index)=>{
+    
+     
+// })
+if(e.target.checked===true){ //*
+    // alert(e.target.checked)
+    this.setState({isChecked:true})
+    updatedArray.push(rowId)
+ this.setState({clickedArr:updatedArray})//[1,2,4]
+console.log('selected id->'+this.state.clickedArr)
+}else{
+    this.setState({isChecked:false})
+   let newArr=updatedArray.filter((item,index)=>{
+        return (index!==rowId)////{[1,2]
+    })
+    console.log("newArray"+newArr)
+    this.setState({clickedArr:newArr})//[1,2]
+   
+    // console.log('deletedarr->'+newArr)
+    console.log('deletedarr->'+this.state.clickedArr)
+}
+}
 
-// handleCheckedBox=(sId)=>{
-//     //   this.setState({clickedArr:this.clickedArr.push(sId)});
-//     let clicked=this.state.clickedArr;
-//     clicked.push(sId);
-//     console.log(clicked)
-//     this.setState({clickedArr:clicked});
-//           let newArr=localStorage.getItem("checkList")===null?[]:JSON.parse(localStorage.getItem("checkList"));
+handleDeletAll=()=>{
+    let updatedproductArr=this.state.productData.filter((item,index)=>{
+       return !this.state.clickedArr.includes(index)
+    })
+    let emptyArr=this.state.clickedArr.splice(0,this.state.clickedArr.length-1);
 
+    this.setState({clickedArr:emptyArr,productData:updatedproductArr});
+    console.log(this.state.clickedArr)
   
-//     let newlocal=newArr.map(item=>{
-//         if(item.id===sId){
-//             this.setState({isChecked:!this.state.isChecked})
-//             item.checked=this.state.isChecked;
-//         }
-//         else{
-//             var clickedData={
-//                         id:sId,
-//                         checked:this.state.isChecked
-//                     }
-//                     newArr.push(clickedData)
-//                     localStorage.setItem("checkList",JSON.stringify(newArr))
-//         }
-//     })
-    //------------------------------
-    // handleCheckedBox=(sId)=>{
-    //     // alert("Bookmark clicked")
-    //     let clicked=this.state.clickedArr;
-    //     clicked.push(sId);
-    //     console.log(clicked)
-    //     this.setState({clickedArr:clicked});
-
-    //     var VideoArr=localStorage.getItem("checkList")===null?[]:JSON.parse(localStorage.getItem("checkList"));
-    //     var data={
-    //       id:sId,
-    //       isChecked:false
-    //     }
-    //     var isExist=false;
-
-    //     const updatedArr= VideoArr.map(item=>{
-    //       // return( 
-    //         if(item.id===sId){
-    //         item.isChecked=!item.isChecked;
-    //         isExist=true;
-    //          this.setState({isChecked:item.isChecked})
-
-    //        }
-    //        return item;
-    //      })
-    //      if(!isExist){
-    //       updatedArr.push(data)
-    //       this.setState({isChecked:false})
-
-    //      }
-    //     // var updatedArr=[data]
-    //     localStorage.setItem("checkList",JSON.stringify(updatedArr))
-    //   }
-
-    //   handleDeletAll=()=>{
-    //       var datafromLoc=JSON.parse(localStorage.getItem("checkList"))
-    //      let nArr=[];
-    //      nArr= datafromLoc.map((item,index)=>{
-    //              if(item.isChecked===true){
-    //                  item.isChecked=false;
-    //                  return item.id;
-    //              }
-                 
-    //       })
-    //     //   console.log(nArr);
-
-    //        let deleteSelectedItems= this.state.productData.filter((item,index)=>{
-    //          return !nArr.includes(index); 
-
-
-    //         })
-    //         // console.log(nArr.slice(-1,nArr.length))
-    //         for(var j=nArr.length;j>=1;j--){
-    //             nArr.pop()
-    //         }
-    //         console.log(nArr)
-    //         console.log(deleteSelectedItems);
-
-    //         this.setState({productData:deleteSelectedItems})
-    //         datafromLoc=[];
-    //         localStorage.setItem("checkList",JSON.stringify(datafromLoc))
-
-    //   }
-    
-//     var clickedData={
-//         id:sId,
-//         checked:this.state.isChecked
-//     }
-// newArr.push(clickedData) 
-//    localStorage.setItem("checkList",JSON.stringify(newArr))
-        // if(i===sId){[0,1]
-        //   clicked=this.state.clickedArr.filter((item,index)=>{
-        //      return sId!==index
-        //   })
-        //   this.setState({clickedArr:clicked})
-        // }
-        // else{
-        //     clicked.push(sId);
-        //     console.log(clicked)
-        //     this.setState({clickedArr:clicked})
-        // }
-    
-    //   this.clickedArr.filter()
-        // console.log(this.state.clickedArr)
-    
-    
-
-
-
-// }
-// class Checkbox extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//         isChecked: true,
-//       };
-//     }
-//     toggleChange = () => {
-//       this.setState({
-//         isChecked: !this.state.isChecked,
-//       });
-//     }
-//     render() {
-//       return (
-//         <label>
-//           <input type="checkbox"
-//             checked={this.state.isChecked}
-//             onChange={this.toggleChange}
-//           />
-//           Check Me!
-//         </label>
-//       );
-//     }
-//   }
+  
+}
 
 
 
@@ -223,7 +121,7 @@ console.log(this.state.productData)
                        {this.state.productData.map((item,index)=>{
             return(
                <tr key={index}>
-               <td><input onClick={()=>{this.handleCheckedBox(index)}} type="checkbox" checked={false} /></td>
+               <td><input type="checkbox"  onChange={(e)=>this.handleChecked(e,index)} /></td>
                <td>{item.category}</td>
                <td>{item.unitSold}</td>
                <td>{item.stock}</td>
